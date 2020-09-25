@@ -40,3 +40,5 @@ java -jar target/GitFocus-Service-0.0.1-SNAPSHOT.jar
 
 
 ****  For Team Members, Must follow indentation with four space and coding standards ****
+
+Need to build CI/CD pipeline
