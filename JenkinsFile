@@ -67,7 +67,7 @@ pipeline {
   post {
     always {
     	cleanWs()
-        emailext recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'GitFocus'
+        emailext body: 'BUILD_URL = ' + env.BUILD_URL recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'GitFocus'
     }
 }
 }
