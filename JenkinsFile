@@ -4,9 +4,9 @@ pipeline {
     registryCredential = 'GITFocus-DockerHub'
     dockerImage = ''
   }
-  options {
+  /*options {
       timeout(time: 5, unit: 'MINUTES') 
-  }
+  }*/
   agent any
   tools { 
     maven 'maven 3.6.3' 
@@ -47,8 +47,10 @@ pipeline {
     stage('Approval') {            
             steps {
                 script {
+		    timeout (time: 2, unit: 'MINUTES') {
                     def deploymentDelay = input id: 'Deploy', message: 'Push Image to DockerHub?', submitter: 'admin', parameters: [choice(choices: ['0', '1', '2', '3'], description: 'Hours to delay deployment?', name: 'deploymentDelay')]
                     sleep time: deploymentDelay.toInteger(), unit: 'HOURS'
+		    }
                 }
             }    
         }
