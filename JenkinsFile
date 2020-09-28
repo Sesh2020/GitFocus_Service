@@ -4,18 +4,14 @@ pipeline {
     registryCredential = 'GITFocus-DockerHub'
     dockerImage = ''
   }
+  options {
+      timeout(time: 5, unit: 'MINUTES') 
+  }
   agent any
   tools { 
     maven 'maven 3.6.3' 
   }	
-  /*
-  agent {
-    docker {
-    image "maven:3.6.0-jdk-13"
-    args "-v /tmp/maven:/root/.m2"
-    }
-  }
-  */
+ 
   stages {
     stage ("Building Jar") {
       steps {
