@@ -51,7 +51,7 @@ pipeline {
     stage('Approval') {            
             steps {
                 script {
-                    def deploymentDelay = input id: 'Deploy', message: 'Push Image to DockerHub?', submitter: 'rkivisto,admin', parameters: [choice(choices: ['0', '1', '2', '3'], description: 'Hours to delay deployment?', name: 'deploymentDelay')]
+                    def deploymentDelay = input id: 'Deploy', message: 'Push Image to DockerHub?', submitter: 'admin', parameters: [choice(choices: ['0', '1', '2', '3'], description: 'Hours to delay deployment?', name: 'deploymentDelay')]
                     sleep time: deploymentDelay.toInteger(), unit: 'HOURS'
                 }
             }
