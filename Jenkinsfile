@@ -22,7 +22,7 @@ pipeline {
    {
      steps{
        script{
-           withAWS(credentials: 'AWS-Personal-Access', region: 'eu-north-1'){
+           withCredentials(awsCredentials){
 	   	//sh "http://ec2-13-53-42-78.eu-north-1.compute.amazonaws.com"
 		  sh 'aws iam get-user'
 	   }
