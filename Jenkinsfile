@@ -34,7 +34,7 @@ pipeline {
 		
 	   //}
 	       sshagent(['AWSK8']) {
-                   sh 'ssh ubuntu@172.31.42.45:22'
+                   sh 'ssh ubuntu@172.31.42.45'
 		       sh 'ls -l'
             }
        }
