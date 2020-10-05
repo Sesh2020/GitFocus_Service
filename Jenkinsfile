@@ -22,10 +22,11 @@ pipeline {
    {
      steps{
        script{
-	       //withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS-Personal-Access', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']])
-	       withCredentials([sshUserPrivateKey(credentialsId: 'cd5b2783-ad24-4e10-a4b6-0b2a61e0400e', keyFileVariable: '', passphraseVariable: '', usernameVariable: 'ubuntu')])           
+	       withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS-Personal-Access', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']])
+	       //withCredentials([sshUserPrivateKey(credentialsId: 'cd5b2783-ad24-4e10-a4b6-0b2a61e0400e', keyFileVariable: '', passphraseVariable: '', usernameVariable: 'ubuntu')])           
 	       {
-	   	sh "172.31.42.45"		
+	   	echo AWS_ACCESS_KEY_ID
+		sh 'pwd'
 		//sh 'aws ec2 describe-security-groups'
 		//sh "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} AWS_DEFAULT_REGION=eu-north-1 ec2-13-53-42-78.eu-north-1.compute.amazonaws.com"
 		
