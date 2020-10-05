@@ -22,9 +22,10 @@ pipeline {
    {
      steps{
        script{
-           withCredentials(awsCredentials){
-	   	//sh "http://ec2-13-53-42-78.eu-north-1.compute.amazonaws.com"
-		echo "${env.AWS_REGION}"
+           withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS-Personal-Access', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']])
+	   {
+	   	sh "ec2-13-53-42-78.eu-north-1.compute.amazonaws.com"
+		
 	   }
        }
      }
