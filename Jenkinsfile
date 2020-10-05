@@ -33,7 +33,7 @@ pipeline {
 		//sh "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} AWS_DEFAULT_REGION=eu-north-1 ec2-13-53-42-78.eu-north-1.compute.amazonaws.com"
 		
 	   //}
-	       sshagent(['my-ssh-key']) {
+	       sshagent(['AWSK8']) {
                    sh 'ssh ubuntu@ec2-13-53-42-78.eu-north-1.compute.amazonaws.com:22'
 		       sh 'ls -l'
             }
