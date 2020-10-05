@@ -34,7 +34,8 @@ pipeline {
 		
 	   //}
 	       sshagent(['my-ssh-key']) {
-                   sh 'ls -l ubuntu@ec2-13-53-42-78.eu-north-1.compute.amazonaws.com:22'
+                   sh 'ssh ubuntu@ec2-13-53-42-78.eu-north-1.compute.amazonaws.com:22'
+		       sh 'ls -l'
             }
        }
      }
