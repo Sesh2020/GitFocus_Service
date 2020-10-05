@@ -24,7 +24,7 @@ pipeline {
        script{
            withCredentials(awsCredentials){
 	   	//sh "http://ec2-13-53-42-78.eu-north-1.compute.amazonaws.com"
-		  sh 'aws iam get-user'
+		echo "${env.AWS_REGION}"
 	   }
        }
      }
