@@ -26,7 +26,7 @@ pipeline {
 	       //withCredentials([sshUserPrivateKey(credentialsId: 'cd5b2783-ad24-4e10-a4b6-0b2a61e0400e', keyFileVariable: '', passphraseVariable: '', usernameVariable: 'ubuntu')])           
 	       withCredentials([sshUserPrivateKey(credentialsId: 'AWSK8', keyFileVariable: '', passphraseVariable: '', usernameVariable: '')]) 
 	       {
-	   	ssh 'ubuntu@ec2-13-53-42-78.eu-north-1.compute.amazonaws.com:22'
+	   	sh 'ssh ubuntu@ec2-13-53-42-78.eu-north-1.compute.amazonaws.com:22'
 		sh 'pwd'
 		sh  'ls -l'
 		//sh 'aws ec2 describe-security-groups'
