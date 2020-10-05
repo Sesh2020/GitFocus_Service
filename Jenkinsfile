@@ -23,7 +23,7 @@ pipeline {
      steps{
        script{
            withCredentials(awsCredentials){
-	   	sh "ec2-13-53-42-78.eu-north-1.compute.amazonaws.com"
+	   	sh "http://ec2-13-53-42-78.eu-north-1.compute.amazonaws.com"
 	   }
        }
      }
